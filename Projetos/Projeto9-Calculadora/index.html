@@ -1,0 +1,130 @@
+<html>
+<head>
+	<title>Calculadora</title>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+</head>
+
+<body style="background: #D9D9D9">
+
+	<!-- Cria a interface da calculadora -->
+	<div class="container">
+		<div class="row">
+			<div class="col d-flex justify-content-center">
+				<br />
+
+				<div class="calculadora">
+					<input id="resultado" type="text" class="form-control resultado" value="0" disabled="disabled" />
+
+					<div class="row">
+						<button onclick="calcular('acao', 'c')" type="button" class="btn btn-dark btn-lg clear font-weight-light">C</button>
+						<button onclick="calcular('acao', '/')" type="button" class="btn btn-dark btn-lg font-weight-light">/</button>
+						<button onclick="calcular('acao', '*')" type="button" class="btn btn-dark btn-lg font-weight-light">x</button>
+					</div>
+
+					<div class="row">
+						<button onclick="calcular('valor', '7')" type="button" class="btn btn-dark btn-lg font-weight-light">7</button>
+						<button onclick="calcular('valor', '8')" type="button" class="btn btn-dark btn-lg font-weight-light">8</button>
+						<button onclick="calcular('valor', '9')" type="button" class="btn btn-dark btn-lg font-weight-light">9</button>
+						<button onclick="calcular('acao', '-')" type="button" class="btn btn-dark btn-lg font-weight-light">-</button>
+					</div>
+
+					<div class="row">
+						<button onclick="calcular('valor', '4')" type="button" class="btn btn-dark btn-lg font-weight-light">4</button>
+						<button onclick="calcular('valor', '5')" type="button" class="btn btn-dark btn-lg font-weight-light">5</button>
+						<button onclick="calcular('valor', '6')" type="button" class="btn btn-dark btn-lg font-weight-light">6</button>
+						<button onclick="calcular('acao', '+')" type="button" class="btn btn-dark btn-lg font-weight-light">+</button>
+					</div>
+
+					<div class="row">
+						<button onclick="calcular('valor', '1')" type="button" class="btn btn-dark btn-lg font-weight-light">1</button>
+						<button onclick="calcular('valor', '2')" type="button" class="btn btn-dark btn-lg font-weight-light">2</button>
+						<button onclick="calcular('valor', '3')" type="button" class="btn btn-dark btn-lg font-weight-light">3</button>
+						<button onclick="calcular('acao', '=')" type="button" class="btn btn-dark btn-lg enter">=</button>
+					</div>
+
+					<div class="row" style="margin-top: -60px">
+						<button onclick="calcular('valor', '0')" type="button" class="btn btn-dark zero btn-lg font-weight-light">0</button>
+						<button onclick="calcular('acao', '.')" type="button" class="btn btn-dark btn-lg font-weight-light">.</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>   
+
+	<script> 
+
+		//Codigo da calculadora
+		function calcular(tipo, valor){
+
+			// Se for uma operacao ou .
+			if(tipo === "acao"){
+				
+				// Se for o comando de limpar o resultado
+				if(valor === "c"){					
+					document.getElementById("resultado").value = 0
+
+				// Se for o comando de realizar a operacao
+			} else if(valor === "="){
+				try{
+					document.getElementById("resultado").value = eval(document.getElementById("resultado").value)
+				}
+				catch{
+					document.getElementById("resultado").value = "ERROR"
+				}
+				
+			}
+
+				// Se for qualquer outro comando
+				else if(valor === "+" || valor === "-" || valor === "/" || valor === "*" || valor === "."){
+
+					if(document.getElementById("resultado").value === "ERROR"){
+						document.getElementById("resultado").value = 0
+					}
+
+
+					var verificador = document.getElementById("resultado").value
+
+					// Garante que nao serao digitados 2 operadores seguidos
+					if(valor === "+" || valor === "-" || valor === "/" || valor === "*"){						
+						if (verificador.includes("+") || verificador.includes("-") || verificador.includes("*") || verificador.includes("/") ) {
+							return document.getElementById("resultado").value
+						}
+
+					}
+
+					// Garante que nao serao exibidos dois ou mais pontos seguidos, ou pontos depois de um operador
+					if (verificador.endsWith(".") || verificador.endsWith("+") || verificador.endsWith("-") || verificador.endsWith("*") || verificador.endsWith("/")) {
+
+					} else{
+						document.getElementById("resultado").value +=  valor
+					}
+				}
+				
+			// Se for um numero
+			} else if(tipo === "valor"){
+
+				// Se o valor atual for zero ou ERROR, o sobrescreve
+				if (document.getElementById("resultado").value == "0" || document.getElementById("resultado").value == "ERROR") {
+					document.getElementById("resultado").value =  valor
+				} else {
+					//Concatena o valor
+					document.getElementById("resultado").value +=  valor
+				}
+
+
+			}
+		}
+
+	</script>
+
+</body>	
+
+</html>
+
+
