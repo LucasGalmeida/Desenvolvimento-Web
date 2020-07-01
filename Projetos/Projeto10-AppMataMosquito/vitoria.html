@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Vitória</title>
+		<meta charset="utf-8">		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">		
+		<link rel="stylesheet" href="css/estilo.css" >
+
+	</head>
+	<body>
+		
+		<div class="container">
+
+			<div class="row">
+				<div class="col">
+					<div class="d-flex justify-content-center">
+						<img src="imagens/vitoria.png">
+					</div>					
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					<div class="d-flex justify-content-center">
+						<button type="button" class="btn btn-danger btn-sm">
+							Total: <span id="contador"></span>
+						</button>
+						<button type="button" class="btn btn-dark btn-lg" onclick="window.location.href = 'index.html'">
+							Reiniciar
+						</button>
+					</div>					
+				</div>
+			</div>
+
+		</div>
+
+		<script>
+			var pontos = localStorage.getItem('moscas')
+			document.getElementById('contador').innerHTML = pontos
+			localStorage.clear()
+		</script>
+		
+	</body>
+</html>
