@@ -1,0 +1,10 @@
+.btn-cadastra {
+    background-color: #f21667;
+    color: #fff;
+}
+
+.btn-cadastra:hover {
+    background-color: #fff;
+    color: #f21667;   
+    border: 1px solid #f21667
+}

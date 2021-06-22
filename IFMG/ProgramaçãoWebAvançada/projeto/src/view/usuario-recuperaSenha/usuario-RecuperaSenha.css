@@ -1,0 +1,15 @@
+.btn-enviar {
+    background-color: #f21667;
+    color: #fff;
+}
+
+.btn-enviar:hover {
+    background-color: #fff;
+    color: #f21667;   
+    border: 1px solid #f21667
+}
+
+.formulario {
+    width: 40%;
+
+}

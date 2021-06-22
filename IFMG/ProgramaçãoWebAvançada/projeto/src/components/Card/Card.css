@@ -1,0 +1,28 @@
+.img-cartao{
+    max-height: 200px;
+    min-height: 200px;
+    min-width: 100%;
+}
+
+.text-cartao{
+    max-height: 70px;
+    min-height: 70px;
+    overflow: hidden;
+}
+
+.rodape-cartao {
+    color: #614ea6;
+    height: 35px;
+}
+
+.btn-detalhes{
+    background-color: #614ea6;
+    color: #fff;    
+}
+
+.btn-detalhes:hover{
+
+    background-color: #f21667;
+    color: #fff;
+
+}

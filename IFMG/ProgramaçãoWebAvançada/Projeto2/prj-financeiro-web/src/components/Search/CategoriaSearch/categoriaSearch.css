@@ -1,0 +1,16 @@
+.searchContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.inputSearchContainer{
+    display: flex;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.inputSearchContainer button{
+    margin-bottom: 0 !important;
+}
